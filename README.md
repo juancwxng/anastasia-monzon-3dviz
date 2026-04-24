@@ -6,7 +6,7 @@ A modern portfolio website developed for a 3D visualization artist, showcasing w
 
 **This repository contains proprietary code developed for a commercial client.**
 
-It is publicly viewable strictly for portfolio evaluation and technical demonstration purposes. No license is granted for the reuse, modification, reproduction, or distribution of any code or assets contained within this repository.
+It is publicly viewable strictly for portfolio evaluation and technical demonstration purposes. No license is granted for the reuse, modification, reproduction, or distribution of any code or contents contained within this repository.
 
 ## Tech Stack
 
@@ -26,4 +26,5 @@ The application follows the Next.js App Router convention utilizing standard imp
 
 ## Developer
 
-**Juan Wong** Email: juancwxng@gmail.com
+**Juan Wong**  
+Email: juancwxng@gmail.com
