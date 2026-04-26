@@ -1,7 +1,14 @@
-import type { NextConfig } from "next";
+/* next.config.ts */
+
+import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  images: {
+    formats: ['image/avif', 'image/webp'],
+  },
+  experimental: {
+    optimizePackageImports: ['clsx', 'tailwind-merge'],
+  },
 };
 
 export default nextConfig;
