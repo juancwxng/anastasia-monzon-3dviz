@@ -1,32 +1,29 @@
 {
-  "name": "anastasia-monzon-3dviz",
+  "name": "anastasia-monzon-portfolio",
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev --turbo",
-    "build": "opennextjs-cloudflare build",
-    "preview": "wrangler pages dev .opennext/cloudflare",
+    "dev": "next dev",
+    "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "next lint"
   },
   "dependencies": {
-    "framer-motion": "^12.38.0",
-    "next": "15.5.15",
-    "react": "19.1.0",
-    "react-dom": "19.1.0",
-    "react-intersection-observer": "^10.0.3"
+    "clsx": "^2.1.1",
+    "next": "^15.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "tailwind-merge": "^2.5.5"
   },
   "devDependencies": {
-    "@eslint/eslintrc": "^3",
-    "@opennextjs/cloudflare": "^1.19.3",
-    "@tailwindcss/postcss": "^4",
-    "@types/node": "^20",
-    "@types/react": "^19",
-    "@types/react-dom": "^19",
-    "eslint": "^9",
-    "eslint-config-next": "15.5.15",
-    "tailwindcss": "^4",
-    "typescript": "^5",
-    "wrangler": "^4.84.1"
+    "@types/node": "^22.0.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "autoprefixer": "^10.5.0",
+    "eslint": "^9.0.0",
+    "eslint-config-next": "^15.3.0",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5.7.0"
   }
 }

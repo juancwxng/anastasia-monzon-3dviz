@@ -1,26 +1,129 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
+/* ─── CSS TOKENS ─────────────────────────────────────────── */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Palette */
+  --charcoal:       #2b2a27;
+  --charcoal-2:     #3d3830;
+  --charcoal-3:     #7a6e63;
+  --warm-white:     #f7f3ee;
+  --warm-white-2:   #ede5dc;
+  --warm-white-3:   #d9cbbe;
+  --dusty-pink:     #e8c5c0;
+  --dusty-pink-2:   #d4a0a4;
+  --dusty-pink-bg:  #f0dade;
+  --dusty-pink-dk:  #7a4455;
+  --sage:           #a8b89a;
+  --sage-dk:        #4a5e3e;
+  --sage-bg:        #d8e4d1;
+  --sage-mid:       #6b7c5e;
+
+  /* Easing */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --header-h: 58px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* ─── RESET ──────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-dm-sans, 'DM Sans', 'Helvetica Neue', sans-serif);
+  background: var(--warm-white);
+  color: var(--charcoal);
+  line-height: 1.6;
+  overflow-x: hidden;
+  font-weight: 300;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ─── FOCUS RING ─────────────────────────────────────────── */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+.project-card:focus-visible,
+[tabindex='0']:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 2px;
+}
+
+/* ─── SCROLL INDICATOR ANIMATION ────────────────────────── */
+@keyframes scroll-drip {
+  0% {
+    transform: translateY(-100%);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(260%);
+    opacity: 0;
+  }
+}
+
+.hero-scroll-track::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40%;
+  background: linear-gradient(
+    to bottom,
+    rgba(247, 243, 238, 0.45),
+    transparent
+  );
+  animation: scroll-drip 2s ease-in-out infinite;
+}
+
+/* ─── SECTION ENTRANCE FADE-UP ───────────────────────────── */
+/* Applied via IntersectionObserver in each section wrapper  */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ─── PREFERS REDUCED MOTION ─────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
 }
