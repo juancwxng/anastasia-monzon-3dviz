@@ -1,4 +1,3 @@
-/* src/components/layout/SiteHeader.tsx */
 'use client';
 
 import { useState } from 'react';

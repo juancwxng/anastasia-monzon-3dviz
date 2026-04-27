@@ -1,5 +1,3 @@
-/* src/components/sections/HeroSection.tsx */
-
 import {
   heroEyebrow,
   heroName,

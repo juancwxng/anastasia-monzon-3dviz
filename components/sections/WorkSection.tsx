@@ -1,5 +1,3 @@
-/* src/components/sections/WorkSection.tsx */
-
 import { workEyebrow, workTitle, workAllLink, projects } from '@/data/portfolio';
 import { ProjectCardWithStyle } from '@/components/ui/ProjectCard';
 

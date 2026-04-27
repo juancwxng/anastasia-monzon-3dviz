@@ -1,5 +1,3 @@
-/* src/components/ui/ScrollVideoEffect.tsx */
-
 import { animGhostTitle, animGhostSub, animCaptionText, animCounter } from '@/data/portfolio';
 
 export default function ScrollVideoEffect() {

@@ -1,5 +1,3 @@
-/* src/components/sections/SocialSection.tsx */
-
 import {
   socialEyebrow,
   socialTitle,

@@ -1,5 +1,3 @@
-/* src/components/ui/ProjectCard.tsx */
-
 import type { Project, TagVariant } from '@/types';
 import { cn } from '@/lib/utils';
 

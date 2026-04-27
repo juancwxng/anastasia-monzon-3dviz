@@ -1,5 +1,3 @@
-/* src/components/ui/ProcessStep.tsx */
-
 import type { ProcessStep } from '@/types';
 
 interface ProcessStepProps {

@@ -1,5 +1,3 @@
-/* src/app/page.tsx */
-
 import SiteHeader from '@/components/layout/SiteHeader';
 import SiteFooter from '@/components/layout/SiteFooter';
 import HeroSection from '@/components/sections/HeroSection';

@@ -1,5 +1,3 @@
-/* src/components/sections/AboutSection.tsx */
-
 import {
   aboutEyebrow,
   aboutHeadline,

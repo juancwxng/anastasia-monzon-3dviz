@@ -1,5 +1,3 @@
-/* src/data/portfolio.ts */
-
 import type {
   Project,
   ProcessStep,

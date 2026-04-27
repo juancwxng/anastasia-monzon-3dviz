@@ -1,5 +1,3 @@
-/* src/components/sections/ProcessSection.tsx */
-
 import { processEyebrow, processTitle, processSteps } from '@/data/portfolio';
 import ProcessStepCard from '@/components/ui/ProcessStep';
 
