@@ -4,21 +4,27 @@
 
 /* ─── CSS TOKENS ─────────────────────────────────────────── */
 :root {
-  --charcoal: #2b2a27;
-  --charcoal-2: #3d3830;
-  --charcoal-3: #7a6e63;
-  --warm-white: #f7f3ee;
-  --warm-white-2: #ede5dc;
-  --warm-white-3: #d9cbbe;
-  --dusty-pink: #e8c5c0;
-  --dusty-pink-2: #d4a0a4;
-  --dusty-pink-bg: #f0dade;
-  --dusty-pink-dk: #7a4455;
-  --sage: #a8b89a;
-  --sage-dk: #4a5e3e;
-  --sage-bg: #d8e4d1;
-  --sage-mid: #6b7c5e;
+  /* Palette */
+  --charcoal:       #2b2a27;
+  --charcoal-2:     #3d3830;
+  --charcoal-3:     #7a6e63;
+  --warm-white:     #f7f3ee;
+  --warm-white-2:   #ede5dc;
+  --warm-white-3:   #d9cbbe;
+  --dusty-pink:     #e8c5c0;
+  --dusty-pink-2:   #d4a0a4;
+  --dusty-pink-bg:  #f0dade;
+  --dusty-pink-dk:  #7a4455;
+  --sage:           #a8b89a;
+  --sage-dk:        #4a5e3e;
+  --sage-bg:        #d8e4d1;
+  --sage-mid:       #6b7c5e;
+
+  /* Easing */
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --header-h: 58px;
 }
 
 /* ─── RESET ──────────────────────────────────────────────── */
@@ -86,8 +92,25 @@ textarea:focus-visible,
   left: 0;
   right: 0;
   height: 40%;
-  background: linear-gradient(to bottom, rgba(247, 243, 238, 0.45), transparent);
+  background: linear-gradient(
+    to bottom,
+    rgba(247, 243, 238, 0.45),
+    transparent
+  );
   animation: scroll-drip 2s ease-in-out infinite;
+}
+
+/* ─── SECTION ENTRANCE FADE-UP ───────────────────────────── */
+/* Applied via IntersectionObserver in each section wrapper  */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* ─── PREFERS REDUCED MOTION ─────────────────────────────── */
@@ -97,5 +120,10 @@ textarea:focus-visible,
   *::after {
     animation: none !important;
     transition: none !important;
+  }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

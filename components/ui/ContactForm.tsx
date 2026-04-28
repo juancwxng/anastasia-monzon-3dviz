@@ -1,3 +1,6 @@
+'use client';
+
+import { useState } from 'react';
 import {
   formProjectTypes,
   formBudgets,
@@ -11,9 +14,57 @@ const inputClass =
 const labelClass =
   'text-[0.5625rem] tracking-[0.18em] uppercase text-[rgba(247,243,238,0.3)] font-normal';
 
+interface FormState {
+  name: string;
+  email: string;
+  project_type: string;
+  budget: string;
+  message: string;
+}
+
 export default function ContactForm() {
+  const [form, setForm] = useState<FormState>({
+    name: '',
+    email: '',
+    project_type: '',
+    budget: '',
+    message: '',
+  });
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
+  ) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async () => {
+    if (!form.name || !form.email) return;
+    setSubmitting(true);
+
+    // Simulate async submission — replace with real API call
+    await new Promise((r) => setTimeout(r, 800));
+
+    setSubmitting(false);
+    setSubmitted(true);
+  };
+
+  if (submitted) {
+    return (
+      <div className="flex flex-col items-start justify-center mt-12 min-h-[320px]">
+        <p className="font-serif italic font-light text-[rgba(247,243,238,0.7)] text-[1.375rem] leading-[1.5] max-w-[340px]">
+          Thank you — your message is on its way. I&rsquo;ll be in touch within one business day.
+        </p>
+        <p className="font-serif italic text-[rgba(232,197,192,0.6)] text-[0.875rem] mt-4">
+          — A. Monzon
+        </p>
+      </div>
+    );
+  }
+
   return (
-    <div className="flex flex-col gap-5 mt-12" role="form" aria-label="Project enquiry">
+    <div className="flex flex-col gap-5 mt-12" aria-label="Project enquiry">
       {/* Row 1 */}
       <div className="grid grid-cols-2 gap-5 max-md:grid-cols-1">
         <div className="flex flex-col gap-2">
@@ -26,7 +77,9 @@ export default function ContactForm() {
             name="name"
             placeholder="Jane Smith"
             className={inputClass}
-            readOnly
+            value={form.name}
+            onChange={handleChange}
+            autoComplete="name"
           />
         </div>
         <div className="flex flex-col gap-2">
@@ -39,7 +92,9 @@ export default function ContactForm() {
             name="email"
             placeholder="jane@studio.com"
             className={inputClass}
-            readOnly
+            value={form.email}
+            onChange={handleChange}
+            autoComplete="email"
           />
         </div>
       </div>
@@ -50,7 +105,13 @@ export default function ContactForm() {
           <label htmlFor="project-type" className={labelClass}>
             Project type
           </label>
-          <select id="project-type" name="project_type" className={inputClass} defaultValue="">
+          <select
+            id="project-type"
+            name="project_type"
+            className={inputClass}
+            value={form.project_type}
+            onChange={handleChange}
+          >
             <option value="" disabled>
               Select one
             </option>
@@ -65,7 +126,13 @@ export default function ContactForm() {
           <label htmlFor="budget" className={labelClass}>
             Approximate budget
           </label>
-          <select id="budget" name="budget" className={inputClass} defaultValue="">
+          <select
+            id="budget"
+            name="budget"
+            className={inputClass}
+            value={form.budget}
+            onChange={handleChange}
+          >
             <option value="" disabled>
               Select range
             </option>
@@ -88,7 +155,8 @@ export default function ContactForm() {
           name="message"
           placeholder="Space type, size, style references, timeline…"
           className={`${inputClass} min-h-[120px] resize-none leading-[1.6]`}
-          readOnly
+          value={form.message}
+          onChange={handleChange}
         />
       </div>
 
@@ -99,9 +167,11 @@ export default function ContactForm() {
         </p>
         <button
           type="button"
-          className="inline-flex items-center gap-[0.625rem] bg-[#a8b89a] text-[#2b2a27] text-[0.6875rem] tracking-[0.16em] uppercase font-medium px-8 py-[0.8rem] rounded-full border-none cursor-pointer transition-[background,color] duration-[250ms] ease-[cubic-bezier(0.16,1,0.3,1)] whitespace-nowrap hover:bg-[#4a5e3e] hover:text-[#f7f3ee]"
+          onClick={handleSubmit}
+          disabled={submitting}
+          className="inline-flex items-center gap-[0.625rem] bg-[#a8b89a] text-[#2b2a27] text-[0.6875rem] tracking-[0.16em] uppercase font-medium px-8 py-[0.8rem] rounded-full border-none cursor-pointer transition-[background,color,opacity] duration-[250ms] ease-[cubic-bezier(0.16,1,0.3,1)] whitespace-nowrap hover:bg-[#4a5e3e] hover:text-[#f7f3ee] disabled:opacity-50 disabled:cursor-not-allowed"
         >
-          {contactSubmitBtn}
+          {submitting ? 'Sending…' : contactSubmitBtn}
         </button>
       </div>
     </div>

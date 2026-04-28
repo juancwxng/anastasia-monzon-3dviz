@@ -12,9 +12,9 @@ import type {
 } from '@/types';
 
 // ─── SITE META ────────────────────────────────────────────
-export const siteTitle = 'Anastasia Monzon — 3D Visualization';
+export const siteTitle = 'Anastasia Monzon — Architectural Visualisation Studio';
 export const siteDescription =
-  '3D visualization artist specializing in architectural interiors, exteriors, and landscape design. Available for projects worldwide.';
+  'Architectural visualisation studio specialising in interiors, exteriors, and landscape design. Available for projects worldwide.';
 
 // ─── HEADER ───────────────────────────────────────────────
 export const logoText = 'A. Monzon';
@@ -26,20 +26,21 @@ export const navLinks: NavLink[] = [
 ];
 
 // ─── HERO ─────────────────────────────────────────────────
-export const heroEyebrow = '3D Visualization · Architectural CGI';
-export const heroName = ['Anastasia', 'Monzon'];
+export const heroEyebrow = 'Architectural Visualisation Studio';
+export const heroName = ['Anastasia', 'Monzon'] as const;
 export const heroTagline =
   'Turning empty rooms into finished stories — before a single brick is laid.';
 export const heroPrimaryBtn = 'View work \u00a0→';
 export const heroSecondaryBtn = 'Start a project';
+// Duplicate phrase removed from quote
 export const heroQuote =
-  '"Architecture is the art of how to waste space thoughtfully — I make sure it photographs beautifully before a single brick is laid."';
-export const heroAvailDot = 'Available for projects';
+  '"Architecture is the art of how to waste space thoughtfully — I make sure it photographs beautifully."';
+export const heroAvailDot = 'Currently accepting Q3 2026 projects';
 export const heroAvailLabel = 'Worldwide · Remote';
 export const heroScrollLabel = 'Scroll';
 
 export const heroDisciplines: HeroDiscipline[] = [
-  { label: 'Interior visualization', active: true },
+  { label: 'Interior visualisation', active: true },
   { label: 'Exterior & architecture', active: true },
   { label: 'Landscape design', active: false },
 ];
@@ -53,7 +54,7 @@ export const heroStats: HeroStat[] = [
 // ─── SCROLL ANIMATION ─────────────────────────────────────
 export const animGhostTitle = 'An empty room fills with life';
 export const animGhostSub = 'Scroll to reveal';
-export const animCaptionText = 'Interior visualization';
+export const animCaptionText = 'Interior visualisation';
 export const animCounter = '001 / 120';
 
 // ─── WORK SECTION ─────────────────────────────────────────
@@ -71,7 +72,7 @@ export const projects: Project[] = [
     tags: [{ label: 'Interior', variant: 'interior' }],
     imgLabel: 'Interior · 3D render',
     imgStyle:
-      'background: linear-gradient(135deg, rgba(43,42,39,0.35) 0%, rgba(43,42,39,0.05) 100%), repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 28px), #c2b2a5;',
+      'linear-gradient(135deg, rgba(43,42,39,0.35) 0%, rgba(43,42,39,0.05) 100%), repeating-linear-gradient(0deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 1px, transparent 1px, transparent 28px), #c2b2a5',
   },
   {
     id: 'garden-spa',
@@ -82,7 +83,7 @@ export const projects: Project[] = [
     tags: [{ label: 'Exterior', variant: 'exterior' }],
     imgLabel: 'Exterior · 3D render',
     imgStyle:
-      'background: linear-gradient(135deg, rgba(106,124,94,0.25) 0%, rgba(43,42,39,0.05) 100%), #b2c4a8;',
+      'linear-gradient(135deg, rgba(106,124,94,0.25) 0%, rgba(43,42,39,0.05) 100%), #b2c4a8',
   },
   {
     id: 'luxury-flat',
@@ -93,7 +94,7 @@ export const projects: Project[] = [
     tags: [{ label: 'Interior', variant: 'interior' }],
     imgLabel: 'Interior · 3D render',
     imgStyle:
-      'background: linear-gradient(155deg, rgba(232,197,192,0.25) 0%, rgba(43,42,39,0.1) 100%), #c4b0ae;',
+      'linear-gradient(155deg, rgba(232,197,192,0.25) 0%, rgba(43,42,39,0.1) 100%), #c4b0ae',
   },
   {
     id: 'law-firm-buffet',
@@ -107,7 +108,7 @@ export const projects: Project[] = [
     ],
     imgLabel: 'In production',
     imgStyle:
-      'background: linear-gradient(135deg, rgba(168,184,154,0.25) 0%, rgba(43,42,39,0.08) 100%), #b8c8b0;',
+      'linear-gradient(135deg, rgba(168,184,154,0.25) 0%, rgba(43,42,39,0.08) 100%), #b8c8b0',
   },
 ];
 
@@ -138,15 +139,16 @@ export const processSteps: ProcessStep[] = [
     num: '04 — Delivery',
     phase: 'Delivery',
     name: 'Final files',
-    desc: 'Print-ready TIFFs and web-optimised JPEGs. Full commercial license included. Turnaround typically 5–10 business days.',
+    desc: 'Print-ready TIFFs and web-optimised JPEGs. Full commercial licence included. Turnaround typically 5–10 business days.',
   },
 ];
 
 // ─── ABOUT SECTION ────────────────────────────────────────
 export const aboutEyebrow = 'Background';
-export const aboutHeadline = 'Trained in landscape architecture.\nFluent in light and space.';
+export const aboutHeadline =
+  'Trained in landscape architecture.\nFluent in light and space.';
 export const aboutBody1 =
-  "I'm Anastasia — a 3D visualization artist with a Bachelor's degree in Landscape Architecture. My academic background means I understand how spaces relate to their environment: how light behaves at different hours, how materials age, how a garden and a building can speak the same visual language.";
+  "I'm Anastasia — a 3D visualisation artist with a Bachelor's degree in Landscape Architecture. My academic background means I understand how spaces relate to their environment: how light behaves at different hours, how materials age, how a garden and a building can speak the same visual language.";
 export const aboutBody2 =
   'Based in Mexico, I work remotely with clients across the United States, Canada, Australia, New Zealand, and beyond. My recent projects include an office complex and luxury residential flat in central Moscow, and an ongoing law firm interior currently in production.';
 export const aboutBadgeNum = '6+';
@@ -196,11 +198,17 @@ export const igThumbs: IgThumb[] = [
 // ─── CONTACT SECTION ──────────────────────────────────────
 export const contactEyebrow = 'Get in touch';
 export const contactHeadline = 'Tell me about\nyour project';
-export const contactNote = 'I read every message personally and reply within one business day.';
+export const contactNote =
+  'I read every message personally and reply within one business day.';
 export const contactSubmitBtn = 'Send message \u00a0→';
+export const contactPricingAnchor = 'Starting from $800 per render';
 
 export const contactMeta: ContactMetaItem[] = [
-  { label: 'Email', value: 'hello@anastasiamonzon.com', href: 'mailto:hello@anastasiamonzon.com' },
+  {
+    label: 'Email',
+    value: 'hello@anastasiamonzon.com',
+    href: 'mailto:hello@anastasiamonzon.com',
+  },
   { label: 'Timezone', value: 'UTC−7 · Mexico' },
   { label: 'Response', value: 'Within 24 hours' },
   { label: 'Languages', value: 'English · Spanish · Russian' },
@@ -213,7 +221,7 @@ export const contactSocials = [
 ];
 
 export const formProjectTypes = [
-  { value: 'interior', label: 'Interior visualization' },
+  { value: 'interior', label: 'Interior visualisation' },
   { value: 'exterior', label: 'Exterior / architecture' },
   { value: 'landscape', label: 'Landscape / garden' },
   { value: 'other', label: 'Other' },
@@ -227,7 +235,7 @@ export const formBudgets = [
 ];
 
 // ─── FOOTER ───────────────────────────────────────────────
-export const footerCopy = '© 2025 Anastasia Monzon · All rights reserved';
+export const footerCopy = '© 2026 Anastasia Monzon · All rights reserved';
 
 export const footerLinks: FooterLink[] = [
   { label: 'Work', href: '#work' },

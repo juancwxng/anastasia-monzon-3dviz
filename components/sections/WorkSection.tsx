@@ -1,12 +1,34 @@
+'use client';
+
+import { useEffect, useRef } from 'react';
 import { workEyebrow, workTitle, workAllLink, projects } from '@/data/portfolio';
-import { ProjectCardWithStyle } from '@/components/ui/ProjectCard';
+import ProjectCard from '@/components/ui/ProjectCard';
 
 export default function WorkSection() {
+  const sectionRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const el = sectionRef.current;
+    if (!el) return;
+    const obs = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          el.classList.add('is-visible');
+          obs.disconnect();
+        }
+      },
+      { threshold: 0.08 },
+    );
+    obs.observe(el);
+    return () => obs.disconnect();
+  }, []);
+
   return (
     <section
       id="work"
+      ref={sectionRef}
       aria-labelledby="work-title"
-      className="px-14 py-20 pb-24 bg-[#f7f3ee] max-lg:px-8 max-lg:py-16 max-lg:pb-20 max-md:px-6 max-md:py-14 max-md:pb-16 xs:px-5 xs:py-12 xs:pb-14"
+      className="reveal px-14 py-20 pb-24 bg-[#f7f3ee] max-lg:px-8 max-lg:py-16 max-lg:pb-20 max-md:px-6 max-md:py-14 max-md:pb-16 xs:px-5 xs:py-12 xs:pb-14"
     >
       {/* Header */}
       <div className="flex justify-between items-end mb-12 max-xs:flex-col max-xs:items-start max-xs:gap-4">
@@ -36,7 +58,7 @@ export default function WorkSection() {
       {/* Grid */}
       <div className="grid grid-cols-2 gap-6 max-md:grid-cols-1">
         {projects.map((project) => (
-          <ProjectCardWithStyle key={project.id} project={project} />
+          <ProjectCard key={project.id} project={project} />
         ))}
       </div>
     </section>
