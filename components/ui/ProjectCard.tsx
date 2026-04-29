@@ -84,11 +84,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           'bg-white',
           featured
             ? 'flex flex-col justify-end p-8 px-9 xs:p-5 xs:px-6'
-            : 'p-5 pb-6 px-6',
+            : 'p-5 pb-6 px-6 flex flex-col justify-between min-h-[9rem]',
         )}
       >
         {/* Tags */}
-        <div className="flex gap-2 mb-[0.65rem]">
+        <div className='flex flex-wrap gap-2 mb-[0.65rem]'>
           {tags.map((t) => (
             <span
               key={t.label}
