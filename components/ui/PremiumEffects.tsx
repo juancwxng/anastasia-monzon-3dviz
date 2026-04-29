@@ -2,19 +2,6 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-/* ─────────────────────────────────────────────────────────────
-   PremiumEffects.tsx  —  Safe Mode
-   Fixes:
-     • <style> injected via dangerouslySetInnerHTML (no jsx dep)
-     • sessionStorage read deferred to useEffect only (no SSR touch)
-     • Loader visibility driven by React state set after mount,
-       eliminating the server/client innerHTML mismatch
-   Consolidates:
-     1. CinematicLoader  — 2.5s sessionStorage-gated intro sequence
-     2. MagneticCursor   — 6px trailing dot + 80px "View" morph
-     3. AtmosphericGrain — fixed <canvas> animated noise
-───────────────────────────────────────────────────────────── */
-
 // CSS injected once, client-side only — no styled-jsx / external dep required
 const CURSOR_CSS = `
   body { cursor: none; }
@@ -193,12 +180,6 @@ export default function PremiumEffects() {
     };
   }, []);
 
-  /* ── RENDER ──────────────────────────────────────────── */
-  // showLoader === null means we're on the server or the very first
-  // client paint before the sessionStorage effect has fired.
-  // We render nothing for the loader in that state to avoid any
-  // flash — the loader div is only mounted once we know it's needed.
-
   return (
     <>
       {/* ── Cinematic Loader — mounted only when needed ── */}
@@ -304,10 +285,7 @@ export default function PremiumEffects() {
           mixBlendMode: 'overlay' as const,
         }}
       />
-
-      {/* ── Global cursor styles — dangerouslySetInnerHTML avoids
-             styled-jsx dependency and is safe here because CURSOR_CSS
-             is a static string defined in this module, never user input. ── */}
+      
       <style dangerouslySetInnerHTML={{ __html: CURSOR_CSS }} />
     </>
   );
