@@ -34,22 +34,20 @@ export default function AboutSection() {
     return () => obs.disconnect();
   }, []);
 
-  // Split headline on literal \n or newline characters into an array of lines
   const headlineLines = aboutHeadline.split(/\\n|\n/);
 
   return (
-   <section
+    <section
       id="about"
       ref={sectionRef}
       aria-labelledby="about-title"
       className="reveal px-6 py-20 md:px-10 md:py-28 lg:px-14 lg:py-32 bg-[#f7f3ee]"
     >
       <div className="grid grid-cols-1 gap-14 md:grid-cols-[1fr_1.1fr] md:gap-20 items-center">
-        {/* Image column */}
+
         {/* ── Image column ── */}
         <div className="relative -mx-2 md:mx-0">
           <div
-            // Use Tailwind aspect-ratio instead of inline styles
             className="w-full rounded-[4px] flex items-end justify-start p-6 aspect-[4/5] md:aspect-[3/4]"
             style={{
               background: 'linear-gradient(180deg, rgba(232,197,192,0.15) 0%, rgba(43,42,39,0.1) 100%), #d9cbbe',
@@ -61,20 +59,18 @@ export default function AboutSection() {
             </span>
           </div>
 
-          {/* ── The Floating Badge ── */}
-          {/* Mobile: Tucked to the right so it doesn't cause horizontal scrollbar */}
-          {/* Desktop: Pushed aggressively out to the right (-right-10) for that premium overlap */}
-          <div className="absolute -bottom-6 right-4 md:-bottom-8 md:-right-10 bg-[#2b2a27] text-[#f7f3ee] p-5 px-6 rounded-[4px] z-10 shadow-lg">
+          {/* ── Floating Badge — delicate dusty-pink ── */}
+          <div className="absolute -bottom-6 right-4 md:-bottom-8 md:-right-10 bg-[#f0dade] text-[#2b2a27] p-5 px-6 rounded-[4px] z-10 shadow-sm">
             <p className="font-serif text-[2rem] italic font-light leading-none mb-[0.2rem]">
               {aboutBadgeNum}
             </p>
-            <p className="text-[0.5625rem] tracking-[0.18em] uppercase text-[rgba(247,243,238,0.45)] font-normal">
+            <p className="text-[0.5625rem] tracking-[0.18em] uppercase text-[#7a6e63] font-normal">
               {aboutBadgeLabel}
             </p>
           </div>
         </div>
 
-        {/* Content column */}
+        {/* ── Content column ── */}
         <div>
           <p
             className="text-[0.625rem] tracking-[0.22em] uppercase text-[#7a6e63] flex items-center gap-3 mb-[0.875rem]
@@ -83,7 +79,6 @@ export default function AboutSection() {
             {aboutEyebrow}
           </p>
 
-          {/* Headline rendered as individual <span> blocks — no whiteSpace pre-line */}
           <h2
             id="about-title"
             className="font-serif text-[2rem] font-light italic text-[#2b2a27] leading-[1.25] mb-6"
@@ -116,7 +111,7 @@ export default function AboutSection() {
 
           {/* Stats */}
           <div
-            className="flex gap-10 pt-6 border-t border-[#ede5dc] max-xs:flex-wrap max-xs:gap-5"
+            className="flex gap-10 pt-6 border-t border-[#ede5dc] flex-wrap"
             aria-label="Key figures"
           >
             {aboutStats.map((s) => (
@@ -131,7 +126,7 @@ export default function AboutSection() {
             ))}
           </div>
 
-          {/* Instagram thumbnails — stable keys using bgColor value */}
+          {/* Instagram thumbnails */}
           {igThumbs && igThumbs.length > 0 && (
             <div
               className="grid grid-cols-3 gap-2 mt-8"
