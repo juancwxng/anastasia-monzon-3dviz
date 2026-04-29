@@ -3,7 +3,6 @@
 import { useEffect, useRef } from 'react';
 import { animGhostTitle, animGhostSub, animCaptionText } from '@/data/portfolio';
 
-const TOTAL_FRAMES = typeof window !== 'undefined' && window.innerWidth < 768 ? 60 : 120;
 const FRAME_BASE = '/frames/';
 
 function pad(n: number): string {
@@ -11,6 +10,7 @@ function pad(n: number): string {
 }
 
 export default function ScrollVideoEffect() {
+  const TOTAL_FRAMES = window.innerWidth < 768 ? 60 : 120;
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const framesRef = useRef<ImageBitmap[]>([]);
   const progressBarRef = useRef<HTMLDivElement>(null);
