@@ -142,8 +142,8 @@ export default function PremiumEffects() {
     let frame = 0;
 
     const resize = () => {
-      canvas.width  = window.innerWidth;
-      canvas.height = window.innerHeight;
+      canvas.width  = window.innerWidth * 0.25;
+      canvas.height = window.innerHeight * 0.25;
     };
     resize();
     window.addEventListener('resize', resize, { passive: true });
