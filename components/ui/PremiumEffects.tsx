@@ -132,6 +132,7 @@ export default function PremiumEffects() {
 
   /* ── 3. ATMOSPHERIC GRAIN ────────────────────────────── */
   useEffect(() => {
+    if (window.innerWidth < 768) return;
     const canvas = grainRef.current;
     if (!canvas) return;
 
