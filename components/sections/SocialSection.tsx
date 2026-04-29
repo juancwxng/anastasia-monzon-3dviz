@@ -24,7 +24,7 @@ export default function SocialSection() {
       {/* Header */}
       <div className="mb-10">
         <p
-          className="text-[0.625rem] tracking-[0.22em] uppercase text-[#7a6e63] font-normal flex items-center gap-3 mb-3
+          className="text-[0.625rem] tracking-[0.3em] uppercase text-[#7a6e63] font-normal flex items-center gap-3 mb-3
             before:content-[''] before:w-5 before:h-px before:bg-[#7a6e63] before:inline-block"
         >
           {socialEyebrow}
@@ -42,26 +42,25 @@ export default function SocialSection() {
 
       {/* Platforms grid */}
       <div className="grid grid-cols-[1fr_1.4fr] gap-14 max-md:grid-cols-1 max-md:gap-10">
+        
         {/* Pinterest */}
         <div>
-          <p className="text-[0.625rem] tracking-[0.22em] uppercase text-[#7a6e63] flex items-center gap-2 mb-4">
+          <p className="text-[0.625rem] tracking-[0.3em] uppercase text-[#7a6e63] flex items-center gap-2 mb-4">
             {pinterestLabel}
           </p>
           <div
             aria-label="Pinterest board preview"
-            className="grid gap-2 h-[260px] max-md:h-[220px] xs:h-[180px]"
-            style={{ gridTemplateColumns: '1fr 1fr', gridTemplateRows: '1fr 1fr' }}
+            className="grid grid-cols-2 gap-2"
           >
-            {pinThumbs.map((pin, i) => (
+            {pinThumbs.map((pin) => (
               <div
                 key={pin.label}
-                className="rounded-[6px] relative overflow-hidden"
-                style={{
-                  background: pinBg[pin.bgClass],
-                  ...(pin.tall ? { gridRow: '1 / 3' } : {}),
-                }}
+                className={`rounded-[6px] relative overflow-hidden w-full ${
+                  pin.tall ? 'row-span-2 h-full' : 'aspect-[4/3] xs:aspect-[5/4]'
+                }`}
+                style={{ background: pinBg[pin.bgClass] }}
               >
-                <span className="absolute bottom-2 left-2 text-[0.5625rem] tracking-[0.1em] uppercase bg-[rgba(43,42,39,0.65)] text-[#f7f3ee] px-[0.55rem] py-[0.2rem] rounded-full">
+                <span className="absolute bottom-2 left-2 text-[0.5625rem] tracking-[0.3em] uppercase bg-[rgba(43,42,39,0.65)] text-[#f7f3ee] px-[0.55rem] py-[0.2rem] rounded-full">
                   {pin.label}
                 </span>
               </div>
@@ -71,7 +70,7 @@ export default function SocialSection() {
 
         {/* Instagram */}
         <div>
-          <p className="text-[0.625rem] tracking-[0.22em] uppercase text-[#7a6e63] flex items-center gap-2 mb-4">
+          <p className="text-[0.625rem] tracking-[0.3em] uppercase text-[#7a6e63] flex items-center gap-2 mb-4">
             {instagramLabel}
           </p>
           <div
