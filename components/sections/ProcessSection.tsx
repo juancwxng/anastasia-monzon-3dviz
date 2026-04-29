@@ -28,25 +28,29 @@ export default function ProcessSection() {
       id="process"
       ref={sectionRef}
       aria-labelledby="process-title"
-      className="reveal bg-[#2b2a27] px-14 py-20 max-lg:px-8 max-lg:py-16 max-md:px-6 max-md:py-14 xs:px-5 xs:py-12"
+      className="reveal bg-[#ede5dc] px-5 py-14 sm:px-8 sm:py-16 md:px-10 md:py-20 lg:px-14 lg:py-28"
     >
-      <p
-        className="text-[0.625rem] tracking-[0.22em] uppercase text-[rgba(247,243,238,0.3)] font-normal flex items-center gap-3 mb-3
-          before:content-[''] before:w-5 before:h-px before:bg-[rgba(247,243,238,0.2)] before:inline-block"
-      >
-        {processEyebrow}
-      </p>
-      <h2
-        id="process-title"
-        className="font-serif text-[2.375rem] font-light italic text-[#f7f3ee] mb-14"
-      >
-        {processTitle}
-      </h2>
+      {/* Section header */}
+      <div className="mb-10 md:mb-14">
+        <p
+          className="text-[0.625rem] tracking-[0.3em] uppercase text-[#7a6e63] font-normal flex items-center gap-3 mb-3
+            before:content-[''] before:w-5 before:h-px before:bg-[#7a6e63] before:inline-block"
+        >
+          {processEyebrow}
+        </p>
+        <h2
+          id="process-title"
+          className="font-serif font-light italic text-[#2b2a27]"
+          style={{ fontSize: 'clamp(1.75rem, 5vw, 2.375rem)' }}
+        >
+          {processTitle}
+        </h2>
+      </div>
 
-      {/* Native <ul> with <li> children — replaces role="list" div */}
-      <ul className="grid grid-cols-4 gap-0 list-none max-lg:grid-cols-2 max-md:grid-cols-1">
+      {/* Steps grid — 1 col on mobile, 2 on md, 4 on xl */}
+      <ul className="grid grid-cols-1 gap-px list-none sm:grid-cols-2 xl:grid-cols-4 bg-[#d9cbbe] rounded-[4px] overflow-hidden">
         {processSteps.map((step, i) => (
-          <li key={step.num}>
+          <li key={step.num} className="bg-[#ede5dc]">
             <ProcessStepCard step={step} index={i} />
           </li>
         ))}
