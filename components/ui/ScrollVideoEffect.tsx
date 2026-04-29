@@ -3,7 +3,7 @@
 import { useEffect, useRef } from 'react';
 import { animGhostTitle, animGhostSub, animCaptionText } from '@/data/portfolio';
 
-const TOTAL_FRAMES = 120;
+const TOTAL_FRAMES = typeof window !== 'undefined' && window.innerWidth < 768 ? 60 : 120;
 const FRAME_BASE = '/frames/';
 
 function pad(n: number): string {
