@@ -1,6 +1,6 @@
-# Anastasia Monzon 3D Visualization Portfolio
+# 3D Artist Portfolio
 
-A modern portfolio website developed for a 3D visualization artist, showcasing work across architectural and product visualization. Built with performance and responsiveness in mind, the application features a custom scroll-driven, frame-by-frame animation effect that reveals a sequence of images as the user navigates the page.
+A modern portfolio website developed for a 3D visualization artist, showcasing work across architectural and product visualization. Built with performance and highly tailored UI responsiveness in mind, the application features custom frontend details (like tailored cursors) alongside a scroll-driven, frame-by-frame animation effect that reveals a sequence of images as the user navigates the page.
 
 ## Legal Notice & Usage
 
@@ -23,8 +23,8 @@ The application follows the Next.js App Router convention utilizing standard imp
 * **ScrollVideoEffect:** A custom React component acting as a scroll-controlled flipbook animation. It monitors the viewport visibility of a designated container and maps the user's scroll progress to sequential frame images stored in the public directory.
 * **ProjectCard:** A reusable UI component for showcasing individual projects, integrated with scroll-reveal animations.
 * **Hero Section:** Incorporates scroll-triggered fade and scale transitions to optimize the initial user experience.
+* **Custom UI Interactions:** Implements tailored frontend details, including a custom cursor, to elevate the interactive feel and match the premium aesthetic of the 3D artwork.
 
 ## Developer
 
-**Juan Wong**  
-Email: juancwxng@gmail.com
+**Juan Wong** Email: juancwxng@gmail.com
