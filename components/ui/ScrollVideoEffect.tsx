@@ -211,7 +211,7 @@ export default function ScrollVideoEffect() {
                 ref={counterRef}
                 className="font-mono text-[0.4375rem] tracking-[0.18em] text-[rgba(247,243,238,0.25)] max-md:text-[0.375rem]"
               >
-                001 / 120
+                001 / {pad(TOTAL_FRAMES)}
               </span>
             </div>
           </div>
