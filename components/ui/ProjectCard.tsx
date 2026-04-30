@@ -25,9 +25,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
     }
   };
 
-  // Determine if we have a real image path or a CSS gradient fallback
   const hasImage = imgStyle.startsWith('/') || imgStyle.startsWith('http');
-  // Parse gradient string for CSS background (remove leading "background: " if present)
   const bgValue = imgStyle
     .replace(/^background:\s*/i, '')
     .replace(/;$/, '')
@@ -36,7 +34,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <article
       className={cn(
-        'project-card group relative block bg-[#ede5dc] rounded-[6px] overflow-hidden cursor-pointer',
+        'project-card group relative flex flex-col bg-[#ede5dc] rounded-[6px] overflow-hidden cursor-pointer',
         featured && 'col-span-full grid grid-cols-[1.35fr_1fr] max-md:grid-cols-1',
       )}
       tabIndex={0}
@@ -66,7 +64,6 @@ export default function ProjectCard({ project }: ProjectCardProps) {
             }}
           />
         ) : (
-          /* Gradient placeholder — clip-path reveal on hover via group */
           <div
             aria-label={imgLabel}
             className="absolute inset-0 transition-[clip-path] duration-[600ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:[clip-path:inset(4%_4%_4%_4%_round_2px)]"
@@ -84,11 +81,11 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           'bg-white',
           featured
             ? 'flex flex-col justify-end p-8 px-9 xs:p-5 xs:px-6'
-            : 'p-5 pb-6 px-6 flex flex-col justify-between min-h-[9rem]',
+            : 'p-5 pb-6 px-6 flex flex-col justify-between self-stretch grow',
         )}
       >
         {/* Tags */}
-        <div className='flex flex-wrap gap-2 mb-[0.65rem]'>
+        <div className="flex flex-wrap gap-2 mb-[0.65rem]">
           {tags.map((t) => (
             <span
               key={t.label}
@@ -102,7 +99,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </div>
 
-        {/* Name — rendered as plain text, no dangerouslySetInnerHTML */}
+        {/* Name */}
         <h3
           className={cn(
             'font-serif font-normal text-[#2b2a27] leading-[1.2] mb-[0.4rem]',
@@ -116,7 +113,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
           ))}
         </h3>
 
-        {/* Sub — plain text, no dangerouslySetInnerHTML */}
+        {/* Sub */}
         <p className="text-[0.8125rem] text-[#7a6e63] font-light">{sub}</p>
 
         {/* Footer */}
